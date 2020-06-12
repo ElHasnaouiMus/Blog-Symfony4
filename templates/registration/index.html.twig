@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello RegistrationController!
+{% endblock %}
+
+{% block body %}
+	<div class="mx-auto">
+		<h2>Inscription au Blog :</h2>
+		{{form_start(form)}}
+            {{ form_row(form.email, {'label': 'Email :','attr': {'placeholder': 'Ajouter Votre Email'}}) }}
+            {{ form_row(form.username, {'label': 'Nom :','attr': {'placeholder': 'Ajouter Votre nom'}}) }}
+            {{ form_row(form.password, {'label': 'Mot de pass :','attr': {'placeholder': 'Mot de Pass'}}) }}
+            {{ form_row(form.confirm_password, {'label': 'Confirmer le Mot de pass :','attr': {'placeholder': 'Confirmer le Mot de pass'}}) }}
+		<button class="btn btn-success" type="submit">Inscrir</button>
+		{{form_end(form)}}
+	</div>
+{% endblock %}
