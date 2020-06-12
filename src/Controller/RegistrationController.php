@@ -8,13 +8,14 @@ use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Entity\User;
 use App\Form\RegistrationType;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class RegistrationController extends AbstractController
 {
     /**
      * @Route("/registration", name="registration")
      */
-    public function register(EntityManagerInterface $em, Request $request)
+    public function register(EntityManagerInterface $em, Request $request, UserPasswordEncoderInterface $encoder)
     {
         $user = new User();
         $form = $this->createForm(RegistrationType::class, $user);
@@ -22,6 +23,10 @@ class RegistrationController extends AbstractController
 
         $form->handleRequest($request);
         if($form->isSubmitted() and $form->isValid()){
+            $encoded = $encoder->encodePassword($user, $user->getPassword());
+
+            $user->setPassword($encoded);
+
             $em->persist($user);
             $em->flush();
 
