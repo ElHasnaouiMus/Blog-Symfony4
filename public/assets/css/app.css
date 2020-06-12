@@ -1,0 +1,136 @@
+body{
+    font-family: 'Bitter', serif;
+    background: #4CA1AF;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #C4E0E5, #4CA1AF);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #C4E0E5, #4CA1AF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+div.logo h2{
+    font-size: 30px;
+    font-weight: 700;
+    padding: 20px;
+}
+
+ul.social{
+
+    list-style: none;
+}
+
+ul.social li{
+
+    border: 2px solid  black;
+    background-color: aliceblue;
+    border-radius: 50px;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+ul.social li a{
+    color: black;
+    padding: 10px;
+}
+
+ul.social li:hover{
+
+    background-color: rgba(255, 255, 255, 0.336);
+}
+
+.main-nav{
+
+    background-color: rgba(0, 0, 0, 0.932);
+    /* border-radius: 10px; */
+}
+
+.navbar-toggler{
+    background-color: white;
+}
+nav .nav-item a{
+
+    padding: 20px;
+    margin-right: 20px;
+    font-size: 15px;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-align: center;
+    color: white !important;
+} 
+
+nav .nav-link:hover{
+
+    background-color: rgba(255, 255, 255, 0.336);
+    border-radius: 10px;
+}
+
+button.search{
+    
+    background-color:white;
+    color: black;
+    margin-right: 10px;
+}
+button.search:hover{
+    
+    background-color: rgba(255, 255, 255, 0.336);
+}
+
+footer{
+
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    background-color: black;
+    height: 60px;
+}
+
+footer ul{
+    list-style: none;
+}
+
+footer ul li{
+    display: inline-block;
+    margin-right: 20px;
+}
+
+footer ul li a{
+    font-size: 14px;
+    color: white;
+}
+
+footer ul li a:hover{
+    text-decoration: none;
+    color: gray;
+}
+
+footer ul li:first-child{
+    font-weight: bold;
+    font-size: 14px;
+    color: white;
+}
+
+div.post,
+.post{
+    background: rgb(255, 255, 255);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+a.username{
+    
+    text-decoration: none;
+}
+
+.btn.btn-success{
+    background-color: black;
+    text-decoration-color: blanchedalmond;
+}
+
+.btn.btn-success:hover{
+    background-color: rgba(0, 0, 0, 0.664);
+}
+
+.logo-name{
+    color: black;
+}
+
+.logo-name:hover{
+    text-decoration: none;
+    color: black;
+}

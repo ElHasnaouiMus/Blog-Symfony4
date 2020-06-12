@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+{% block body %}
+	<body>
+		<div class="col-sm-7 mt-4 mx-4">
+			<row class="row post mb-1">
+				<div class="col-12">
+					<h2>{{post.title}}</h2>
+					<a class="username" href="#">
+						<span href="#" class="badge badge-info">Ali Alaoui</span>
+					</a>
+					<p class="small">{{post.createdAt |date("m/d/Y")}}</p>
+					<p>{{post.body}}</p>
+				</div>
+			</row>
+		</div>
+	</body>
+{% endblock %}
