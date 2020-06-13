@@ -10,10 +10,10 @@ use App\Entity\User;
 use App\Form\RegistrationType;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
-class RegistrationController extends AbstractController
+class SecurityController extends AbstractController
 {
     /**
-     * @Route("/registration", name="registration")
+     * @Route("/register", name="registration")
      */
     public function register(EntityManagerInterface $em, Request $request, UserPasswordEncoderInterface $encoder)
     {
@@ -22,19 +22,27 @@ class RegistrationController extends AbstractController
         dump($request);
 
         $form->handleRequest($request);
-        if($form->isSubmitted() and $form->isValid()){
-            $encoded = $encoder->encodePassword($user, $user->getPassword());
+        if ($form->isSubmitted() and $form->isValid()) {
 
+            $encoded = $encoder->encodePassword($user, $user->getPassword());
             $user->setPassword($encoded);
 
             $em->persist($user);
             $em->flush();
 
-            return $this->redirectToRoute('home');
-
+            return $this->redirectToRoute('security_login');
         }
-        return $this->render('registration/index.html.twig', [
-            "form"=>$form->createView()
+        return $this->render('security/register.html.twig', [
+            "form" => $form->createView()
         ]);
+    }
+
+    /**
+     * @Route("/login", name="security_login")
+     */
+    public function login()
+    {
+
+        return $this->render('security/login.html.twig');
     }
 }

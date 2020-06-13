@@ -134,3 +134,10 @@ a.username{
     text-decoration: none;
     color: black;
 }
+
+.mx-auto{
+    background: rgb(255, 255, 255);
+    padding: 30px;
+    border-radius: 10px;
+
+}

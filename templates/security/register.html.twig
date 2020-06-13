@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello RegistrationController!
+{% block title %}Inscription
 {% endblock %}
 
 {% block body %}
@@ -10,7 +10,7 @@
             {{ form_row(form.email, {'label': 'Email :','attr': {'placeholder': 'Ajouter Votre Email'}}) }}
             {{ form_row(form.username, {'label': 'Nom :','attr': {'placeholder': 'Ajouter Votre nom'}}) }}
             {{ form_row(form.password, {'label': 'Mot de pass :','attr': {'placeholder': 'Mot de Pass'}}) }}
-            {{ form_row(form.confirm_password, {'label': 'Confirmer le Mot de pass :','attr': {'placeholder': 'Confirmer le Mot de pass'}}) }}
+            {{ form_row(form.confirm_password, {'label': 'Confirmer le Mot de pass :','attr': {'placeholder': 'Confirmer Votre Mot de pass'}}) }}
 		<button class="btn btn-success" type="submit">Inscrir</button>
 		{{form_end(form)}}
 	</div>
