@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+	<div class="mx-auto">
+		<h2>Ajouter un Post:
+		</h2>
+
+		{{ form_start(form)}}
+
+            {{form_row(form.Title)}}
+            {{form_row(form.Body)}}
+            <button class="btn btn-success">Ajouter le Post</button>
+		{{ form_end(form)}}
+
+
+	</div>
+{% endblock %}

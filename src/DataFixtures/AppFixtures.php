@@ -14,12 +14,10 @@ class AppFixtures extends Fixture
     {
         $slugify = new Slugify();
 
-        echo $slugify->slugify('Hello World!'); // hello-world
-
         for ($i=1; $i < 20; $i++) { 
 
             $Post = new Post();
-            $Post->setTitle('Post Number '.$i);
+            $Post->setTitle('Question Number '.$i);
             $Post->setBody('
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus nobis minus ea rem eligendi. Possimus vel dicta rem culpa. Sequi sed doloremque corporis nihil sint qui amet ut maiores. Totam?
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus nobis minus ea rem eligendi. Possimus vel dicta rem culpa. Sequi sed doloremque corporis nihil sint qui amet ut maiores. Totam?
