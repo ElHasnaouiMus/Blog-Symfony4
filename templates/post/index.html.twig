@@ -4,22 +4,43 @@
 {% endblock %}
 
 {% block body %}
-{% for post in posts %}
-	<div class="col-sm-7 mt-4 mx-4">
-		<row class="row post mb-1">
-			<div class="col-12">
-				<h2 class="text-capitalize">{{post.Title}}</h2>
-				<div class="added">
-				<p>
-				<a class="username" href="#">
-					<span href="#" class="badge badge-info">Ali Alaoui</span>
-				</a>
-				<p class="small">{{post.createdAt |date("m/d/Y")}}</p>
+	<div class="col-sm-7 mt-4 mx-3">
+		{% for post in posts %}
+			<div class="row post mb-3">
+				<div class="col-12">
+					<h2 class="text-capitalize">{{post.Title}}</h2>
+					<div class="added">
+						<p>
+							<a class="username" href="#">
+								<span href="#" class="badge badge-info">Ali Alaoui</span>
+							</a>
+						</p>
+						<p class="small">{{post.createdAt |date("m/d/Y")}}</p>
+					</div>
+					<p>{{post.body|slice(0, 200)}}...</p>
+					<a href="{{path('show', { 'Slug': post.Slug } ) }}" class="btn btn-success float-left text-capitalize">Lire La Suite</a>
 				</div>
-				<p>{{post.body|slice(0, 200)}}...</p>
-				<a href="{{path('show', { 'id': post.id } ) }}" class="btn btn-success float-left text-capitalize">Lire La Suite</a>
 			</div>
-		</row>
+		{% endfor %}
 	</div>
-{% endfor %}
+	<div class="col-sm-4 mt-4">
+		<div class="row post mb-3">
+			<div class="col-12">
+				<h3>Les Posts les plus récents :</h3>
+			</div>
+		</div>
+		<div class="row post mb-1">
+			<div class="col-12">
+				{% for post in Posts_Recents %}
+					<div class="my-2">
+						<a href="{{path('show', { 'Slug': post.Slug } ) }}">{{post.Title}}
+							<br>
+						</a>
+						<small>{{post.CreatedAt |date("F jS \\a\\t g:ia")}}</small>
+						<br>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
 {% endblock %}

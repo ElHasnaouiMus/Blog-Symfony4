@@ -17,16 +17,27 @@ class PostController extends AbstractController
     /**
      * @Route("/", name="home")
      */
-    public function index(PostRepository $repo)
+    public function index(PostRepository $repo, EntityManagerInterface $em)
     {
         $Posts = $repo->findAll();
+        $query = $em->createQueryBuilder();
+
+        $query->select( 'p.Title', 'p.Slug', 'p.CreatedAt' )
+        ->from( 'App\Entity\Post', 'p')
+        ->setMaxResults(20)
+        ->orderBy('p.CreatedAt', 'Desc');
+
+        $Posts_Recents = $query->getQuery()->getResult();
+
+
         return $this->render('post/index.html.twig', [
             'posts' => $Posts,
+            'Posts_Recents' => $Posts_Recents
         ]);
     }
 
     /**
-     * @Route("/show/{id}", name="show")
+     * @Route("/show/{Slug}", name="show")
      */
     public function show(Post $post)
     {
